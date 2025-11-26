@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(onPressed: _logout, icon: const Icon(Icons.logout)),
         ],
       ),
-      body: SingleChildScrollView( 
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               icon: Icons.newspaper,
               endpoint: "articles",
             ),
-            const SizedBox(height: 16), 
+            const SizedBox(height: 16),
             _buildCustomCard(
               title: "Blog",
               description: "Blogs often provide a more detailed overview of launches and missions. A must-have for the serious enthusiast.",
@@ -95,8 +95,8 @@ class _HomePageState extends State<HomePage> {
         width: double.infinity,
         padding: const EdgeInsets.all(24.0),
         decoration: BoxDecoration(
-          color: const Color(0xFFF3E5F5), 
-          borderRadius: BorderRadius.circular(20), 
+          color: const Color(0xFFF3E5F5),
+          borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),
@@ -109,7 +109,6 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             Container(
                padding: const EdgeInsets.all(12),
                decoration: BoxDecoration(
@@ -119,7 +118,6 @@ class _HomePageState extends State<HomePage> {
                child: Icon(icon, size: 40, color: Colors.deepPurple),
             ),
             const SizedBox(width: 20),
-
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,8 +135,8 @@ class _HomePageState extends State<HomePage> {
                     description,
                     style: const TextStyle(
                       fontSize: 14,
-                      color: Colors.black54, 
-                      height: 1.5, 
+                      color: Colors.black54,
+                      height: 1.5,
                     ),
                   ),
                 ],

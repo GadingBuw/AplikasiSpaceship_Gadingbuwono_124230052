@@ -13,7 +13,18 @@ class ApiService {
       List<dynamic> results = jsonResponse['results'];
       return results.map((data) => Article.fromJson(data)).toList();
     } else {
-      throw Exception('Failed to load data');
+      throw Exception('Failed to load list');
+    }
+  }
+
+  Future<Article> fetchArticleById(String endpoint, int id) async {
+    final url = '$baseUrl/$endpoint/$id/';
+    final response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      return Article.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to load detail');
     }
   }
 }

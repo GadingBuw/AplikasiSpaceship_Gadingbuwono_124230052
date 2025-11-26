@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart'; 
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/login_page.dart';
@@ -7,8 +7,11 @@ import 'screens/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Init Hive & Box User
   await Hive.initFlutter();
   await Hive.openBox('userBox');
+
   runApp(const MyApp());
 }
 
@@ -19,13 +22,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'SpaceFlight News',
-      debugShowCheckedModeBanner: false, 
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(),
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF1E1E2C), 
-          foregroundColor: Colors.white, 
+          foregroundColor: Colors.white,
           centerTitle: true,
           elevation: 0,
         ),

@@ -24,7 +24,7 @@ class _ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
-    String displayTitle = widget.title == "News" ? "Berita Terkini" : "${widget.title} List";
+    String displayTitle = widget.title == "News" ? "Berita Terkini" : widget.title;
 
     return Scaffold(
       appBar: AppBar(
@@ -67,7 +67,10 @@ class _ListPageState extends State<ListPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailPage(article: article),
+                        builder: (context) => DetailPage(
+                          endpoint: widget.endpoint,
+                          articleId: article.id,
+                        ),
                       ),
                     );
                   },
@@ -82,13 +85,12 @@ class _ListPageState extends State<ListPage> {
                           width: double.infinity,
                           fit: BoxFit.cover,
                           errorBuilder: (c, e, s) => Container(
-                            height: 200, 
-                            color: Colors.grey[200], 
-                            child: const Icon(Icons.broken_image, size: 50)
+                            height: 200,
+                            color: Colors.grey[200],
+                            child: const Icon(Icons.broken_image, size: 50),
                           ),
                         ),
                       ),
-                      
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
@@ -99,9 +101,9 @@ class _ListPageState extends State<ListPage> {
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
-                                fontSize: 18, 
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black87
+                                color: Colors.black87,
                               ),
                             ),
                             const SizedBox(height: 8),
@@ -109,7 +111,7 @@ class _ListPageState extends State<ListPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  article.newsSite, 
+                                  article.newsSite,
                                   style: TextStyle(color: Colors.purple[300], fontWeight: FontWeight.w600),
                                 ),
                                 const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey)
